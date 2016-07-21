@@ -6,9 +6,9 @@
 DEBUG=${DEBUG:-2}
 colors=('\e[0m' '\e[0;31m' '\e[0;32m' '\e[0;33m')
 default=0
-red=1
-green=2
-yellow=3
+r1e2d=1
+g1r2e3e4n=2
+y1e2l3l4o5w=3
 
 err_=1
 warn_=2
@@ -24,21 +24,21 @@ info()
 warn()
 {
   if [ $DEBUG -ge $warn_ ]; then
-    printf "${colors[$yellow]}WARN :${colors[$default]} ${*}\n"
+    printf "${colors[$y1e2l3l4o5w]}WARN :${colors[$default]} ${*}\n"
   fi
 }
 
 err()
 {
   if [ $DEBUG -ge $err_ ]; then
-    printf "${colors[$red]}ERROR:${colors[$default]} ${*}\n"
+    printf "${colors[$r1e2d]}ERROR:${colors[$default]} ${*}\n"
   fi
 }
 
 run()
 {
   # [ ! -z ${DEBUG} ] && printf "running command: ${*}\n"
-  info "running command: ${*}"
+  info "Running command: ${*}"
   "${@}"
 }
 
@@ -53,7 +53,7 @@ if [ `basename ${0}` == "debug.sh" ]; then
     info Hello world!
     warn This is a warning
     err This is a error
-    run ls -l --color=tty
+    run ls -l
     printf "\n\t--- Finish test ---\n"
   }
 
