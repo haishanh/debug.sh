@@ -45,7 +45,8 @@ run()
 
 ## testing
 
-if [ `basename ${0}` == "debug.sh" ]; then
+BNAME=$(basename "./${0}")
+if [ "$BNAME" == "debug.sh" ]; then
   # define the test
   selftest()
   {
